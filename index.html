@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 Farouk - The Ultimate Troll</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --troll-green: #00ff41;
+            --matrix-green: #008f11;
+            --danger-red: #ff0040;
+            --warning-yellow: #ffff00;
+            --hacker-blue: #00d4ff;
+            --dark: #000000;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: var(--dark);
+            color: var(--troll-green);
+            overflow-x: hidden;
+            cursor: crosshair;
+        }
+
+        /* Matrix Rain Background */
+        .matrix-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: #000;
+        }
+
+        .matrix-rain {
+            position: absolute;
+            color: var(--troll-green);
+            font-family: 'Courier New', monospace;
+            font-size: 16px;
+            animation: matrixFall linear infinite;
+            opacity: 0.7;
+        }
+
+        @keyframes matrixFall {
+            0% {
+                transform: translateY(-100vh);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+        }
+
+        /* Fake System Alerts */
+        .fake-alert {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--danger-red);
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            font-weight: bold;
+            z-index: 10000;
+            animation: alertBlink 1s infinite, alertShake 0.5s infinite;
+            box-shadow: 0 0 20px var(--danger-red);
+        }
+
+        @keyframes alertBlink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        @keyframes alertShake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+
+        /* Troll Navigation */
+        .troll-nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            border-bottom: 2px solid var(--troll-green);
+            padding: 10px 0;
+            z-index: 1000;
+            animation: navGlitch 3s infinite;
+        }
+
+        @keyframes navGlitch {
+            0%, 90%, 100% { transform: translate(0); }
+            92% { transform: translate(-2px, 2px); }
+            94% { transform: translate(2px, -2px); }
+            96% { transform: translate(-2px, -2px); }
+            98% { transform: translate(2px, 2px); }
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .troll-logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--danger-red);
+            text-shadow: 0 0 10px var(--danger-red);
+            animation: logoSpin 2s linear infinite;
+        }
+
+        @keyframes logoSpin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .troll-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .troll-links a {
+            color: var(--troll-green);
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .troll-links a:hover {
+            color: var(--danger-red);
+            text-shadow: 0 0 15px var(--danger-red);
+            transform: scale(1.2);
+        }
+
+        /* Hero Troll Section */
+        .hero-troll {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        .fake-terminal {
+            background: rgba(0, 0, 0, 0.8);
+            border: 2px solid var(--troll-green);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px;
+            font-family: 'Courier New', monospace;
+            max-width: 800px;
+            box-shadow: 0 0 30px var(--troll-green);
+        }
+
+        .terminal-header {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .terminal-btn {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: var(--danger-red);
+        }
+
+        .terminal-btn:nth-child(2) { background: var(--warning-yellow); }
+        .terminal-btn:nth-child(3) { background: var(--troll-green); }
+
+        .terminal-content {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .typing-troll {
+            border-right: 3px solid var(--troll-green);
+            animation: typingCursor 1s step-end infinite;
+        }
+
+        @keyframes typingCursor {
+            0%, 50% { border-color: var(--troll-green); }
+            51%, 100% { border-color: transparent; }
+        }
+
+        .glitch-title {
+            font-size: clamp(3rem, 8vw, 8rem);
+            font-weight: bold;
+            margin: 20px 0;
+            color: var(--troll-green);
+            text-shadow: 
+                0 0 5px var(--troll-green),
+                0 0 10px var(--troll-green),
+                0 0 15px var(--troll-green);
+            animation: titleGlitch 2s infinite;
+            position: relative;
+        }
+
+        @keyframes titleGlitch {
+            0%, 90%, 100% {
+                transform: translate(0);
+                filter: hue-rotate(0deg);
+            }
+            10% {
+                transform: translate(-2px, 2px);
+                filter: hue-rotate(90deg);
+            }
+            20% {
+                transform: translate(2px, -2px);
+                filter: hue-rotate(180deg);
+            }
+            30% {
+                transform: translate(-2px, -2px);
+                filter: hue-rotate(270deg);
+            }
+            40% {
+                transform: translate(2px, 2px);
+                filter: hue-rotate(360deg);
+            }
+        }
+
+        /* Annoying Popup */
+        .annoying-popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--warning-yellow);
+            color: var(--dark);
+            padding: 30px;
+            border: 3px solid var(--danger-red);
+            border-radius: 10px;
+            z-index: 10001;
+            text-align: center;
+            font-weight: bold;
+            box-shadow: 0 0 50px var(--danger-red);
+            animation: popupBounce 0.5s infinite alternate;
+            display: none;
+        }
+
+        @keyframes popupBounce {
+            0% { transform: translate(-50%, -50%) scale(1); }
+            100% { transform: translate(-50%, -50%) scale(1.1); }
+        }
+
+        /* Troll Sections */
+        .troll-section {
+            padding: 100px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .section-title-troll {
+            font-size: clamp(2rem, 5vw, 4rem);
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--danger-red);
+            text-shadow: 0 0 20px var(--danger-red);
+            animation: sectionGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes sectionGlow {
+            0%, 100% { text-shadow: 0 0 20px var(--danger-red); }
+            50% { text-shadow: 0 0 40px var(--danger-red), 0 0 60px var(--warning-yellow); }
+        }
+
+        /* Fake Skills */
+        .troll-skills {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .troll-skill {
+            background: rgba(0, 255, 65, 0.1);
+            border: 2px solid var(--troll-green);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .troll-skill::before {
+            content: '💀';
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+            animation: skullSpin 2s linear infinite;
+        }
+
+        @keyframes skullSpin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .troll-skill:hover {
+            background: rgba(255, 0, 64, 0.2);
+            border-color: var(--danger-red);
+            transform: scale(1.05) rotate(2deg);
+            box-shadow: 0 0 30px var(--danger-red);
+        }
+
+        .skill-icon-troll {
+            font-size: 60px;
+            margin-bottom: 15px;
+            animation: iconBounce 2s ease-in-out infinite;
+        }
+
+        @keyframes iconBounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .troll-skill h3 {
+            color: var(--troll-green);
+            margin-bottom: 10px;
+            font-size: 24px;
+        }
+
+        .troll-skill p {
+            color: #cccccc;
+            line-height: 1.6;
+        }
+
+        /* Fake Projects */
+        .troll-projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .troll-project {
+            background: rgba(0, 0, 0, 0.8);
+            border: 2px solid var(--hacker-blue);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.5s ease;
+            position: relative;
+        }
+
+        .troll-project::after {
+            content: '🚨 CLASSIFIED 🚨';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--danger-red);
+            color: white;
+            text-align: center;
+            padding: 5px;
+            font-size: 12px;
+            font-weight: bold;
+            animation: classifiedBlink 1s infinite;
+        }
+
+        @keyframes classifiedBlink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        .troll-project:hover {
+            transform: translateY(-10px) rotateX(10deg);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.3);
+            border-color: var(--danger-red);
+        }
+
+        .project-image-troll {
+            height: 200px;
+            background: linear-gradient(45deg, var(--dark), var(--matrix-green));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-content-troll {
+            padding: 25px;
+            margin-top: 30px;
+        }
+
+        .project-content-troll h3 {
+            color: var(--hacker-blue);
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+
+        .project-content-troll p {
+            color: #cccccc;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .troll-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .troll-tag {
+            background: rgba(255, 0, 64, 0.2);
+            color: var(--danger-red);
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 12px;
+            border: 1px solid var(--danger-red);
+            animation: tagGlow 2s ease-in-out infinite;
+        }
+
+        @keyframes tagGlow {
+            0%, 100% { box-shadow: 0 0 5px var(--danger-red); }
+            50% { box-shadow: 0 0 15px var(--danger-red); }
+        }
+
+        /* Troll Buttons */
+        .troll-btn {
+            background: linear-gradient(45deg, var(--danger-red), var(--warning-yellow));
+            border: none;
+            color: var(--dark);
+            padding: 15px 30px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            margin: 10px;
+            position: relative;
+            overflow: hidden;
+            animation: btnPulse 2s infinite;
+        }
+
+        @keyframes btnPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .troll-btn:hover {
+            background: linear-gradient(45deg, var(--warning-yellow), var(--danger-red));
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 0 30px var(--danger-red);
+        }
+
+        .troll-btn::after {
+            content: '💣';
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        /* Contact Troll */
+        .contact-troll {
+            text-align: center;
+            padding: 100px 20px;
+            background: radial-gradient(circle, rgba(255, 0, 64, 0.1), transparent);
+        }
+
+        .contact-warning {
+            background: var(--warning-yellow);
+            color: var(--dark);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px auto;
+            max-width: 600px;
+            font-weight: bold;
+            border: 3px dashed var(--danger-red);
+            animation: warningFlash 1s infinite;
+        }
+
+        @keyframes warningFlash {
+            0%, 50% { background: var(--warning-yellow); }
+            51%, 100% { background: var(--danger-red); color: white; }
+        }
+
+        .contact-links-troll {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .contact-link-troll {
+            background: rgba(0, 255, 65, 0.1);
+            border: 2px solid var(--troll-green);
+            color: var(--troll-green);
+            padding: 15px 25px;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .contact-link-troll::before {
+            content: '⚠️';
+            margin-right: 10px;
+        }
+
+        .contact-link-troll:hover {
+            background: rgba(255, 0, 64, 0.2);
+            border-color: var(--danger-red);
+            color: var(--danger-red);
+            transform: scale(1.1);
+            box-shadow: 0 0 20px var(--danger-red);
+        }
+
+        /* Footer Troll */
+        .footer-troll {
+            background: var(--dark);
+            border-top: 2px solid var(--danger-red);
+            padding: 30px 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .footer-troll::before {
+            content: '⚠️ WARNING: THIS SITE MAY CONTAIN TRACES OF SARCASM ⚠️';
+            position: absolute;
+            top: -40px;
+            left: 0;
+            right: 0;
+            background: var(--danger-red);
+            color: white;
+            padding: 10px;
+            font-weight: bold;
+            animation: warningScroll 10s linear infinite;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        @keyframes warningScroll {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .troll-links {
+                gap: 15px;
+            }
+            
+            .contact-links-troll {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .troll-skills,
+            .troll-projects {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Annoying Cursor Follow */
+        .cursor-follow {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            background: var(--danger-red);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            animation: cursorPulse 1s infinite;
+            mix-blend-mode: difference;
+        }
+
+        @keyframes cursorPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(2); }
+        }
+
+        /* Screen Distortion Effect */
+        .screen-distortion {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9998;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 3px,
+                rgba(0, 255, 65, 0.03) 3px,
+                rgba(0, 255, 65, 0.03) 6px
+            );
+            animation: screenFlicker 0.1s infinite;
+        }
+
+        @keyframes screenFlicker {
+            0% { opacity: 1; }
+            98% { opacity: 1; }
+            99% { opacity: 0.98; }
+            100% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Fake System Alert -->
+    <div class="fake-alert" id="fakeAlert">
+        ⚠️ VIRUS DETECTED! Just kidding 😈
+    </div>
+
+    <!-- Matrix Background -->
+    <div class="matrix-bg" id="matrixBg"></div>
+
+    <!-- Screen Distortion -->
+    <div class="screen-distortion"></div>
+
+    <!-- Cursor Follower -->
+    <div class="cursor-follow" id="cursorFollow"></div>
+
+    <!-- Annoying Popup -->
+    <div class="annoying-popup" id="annoyingPopup">
+        <h2>🎉 CONGRATULATIONS! 🎉</h2>
+        <p>You are visitor number <span id="fakeCounter">1337420</span>!</p>
+        <p>Click anywhere to claim your FREE iPhone! 📱</p>
+        <button onclick="closePopup()" class="troll-btn">Close (X)</button>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="troll-nav">
+        <div class="nav-content">
+            <div class="troll-logo">💀 404.TROLL 💀</div>
+            <ul class="troll-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#skills">Fake Skills</a></li>
+                <li><a href="#projects">Fake Projects</a></li>
+                <li><a href="#contact">Don't Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-troll">
+        <div class="fake-terminal">
+            <div class="terminal-header">
+                <div class="terminal-btn"></div>
+                <div class="terminal-btn"></div>
+                <div class="terminal-btn"></div>
+            </div>
+            <div class="terminal-content">
+                <p>$ whoami</p>
+                <p style="color: var(--troll-green);">ultimate_troll_master</p>
+                <p>$ sudo rm -rf your_expectations</p>
+                <p style="color: var(--danger-red);">Permission granted. Trolling initiated...</p>
+                <p class="typing-troll" id="typingText">$ </p>
+            </div>
+        </div>
+        
+        <h1 class="glitch-title">404 FAROUK</h1>
+        <h2 style="color: var(--warning-yellow); font-size: 2rem; margin-bottom: 20px;">
+            🎭 MASTER TROLL • CHAOS ENGINEER • EXPECTATION DESTROYER 🎭
+        </h2>
+        <p style="color: var(--hacker-blue); font-size: 1.2rem; margin-bottom: 30px;">
+            #404 because your sanity isn't found, it's trolled
+        </p>
+        
+        <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+            <a href="#skills" class="troll-btn" onclick="rickRoll()">View My "Skills"</a>
+            <a href="#projects" class="troll-btn" onclick="showFakeError()">See "Projects"</a>
+            <button class="troll-btn" onclick="activateChaos()">DO NOT CLICK</button>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="troll-section">
+        <h2 class="section-title-troll">🤡 My "Professional" Skills 🤡</h2>
+        <div class="troll-skills">
+            <div class="troll-skill">
+                <div class="skill-icon-troll">🍝</div>
+                <h3>Spaghetti Code Master</h3>
+                <p>15+ years of writing code so tangled, even I can't understand it. Specializing in 10,000-line functions and variables named 'x', 'data2', and 'theThing'.</p>
+            </div>
+            
+            <div class="troll-skill">
+                <div class="skill-icon-troll">🔥</div>
+                <h3>Professional Bug Creator</h3>
+                <p>Expert in introducing exactly 3 new bugs for every 1 bug fixed. Certified in making features that work perfectly... until someone else tries to use them.</p>
+            </div>
+            
+            <div class="troll-skill">
+                <div class="skill-icon-troll">💩</div>
+                <h3>CSS Chaos Engineer</h3>
+                <p>Master of making responsive designs that only work on my specific laptop screen resolution. Fluent in !important cascades and mysterious z-index wars.</p>
+            </div>
+            
+            <div class="troll-skill">
+                <div class="skill-icon-troll">🤯</div>
+                <h3>User Experience Destructor</h3>
+                <p>Specialized in creating interfaces so confusing that users question their life choices. 47 steps to complete a simple task? That's rookie numbers!</p>
+            </div>
+            
+            <div class="troll-skill">
+                <div class="skill-icon-troll">⏰</div>
+                <h3>Deadline Magician</h3>
+                <p>Expert in estimating 2-hour tasks as 5-day projects and somehow still delivering 3 weeks late. Time is just a social construct anyway, right?</p>
+            </div>
+            
+            <div class="troll-skill">
+                <div class="skill-icon-troll">🔍</div>
+                <h3>Stack Overflow Copier</h3>
+                <p>PhD in Ctrl+C, Ctrl+V from Stack Overflow. Can copy code without understanding it and make it "work" through sheer determination and caffeine.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="troll-section">
+        <h2 class="section-title-troll">🚨 TOP SECRET PROJECTS 🚨</h2>
+        <div class="troll-projects">
+            <div class="troll-project">
+                <div class="project-image-troll">💣</div>
+                <div class="project-content-troll">
+                    <h3>Nuclear Launch Codes Generator</h3>
+                    <p>A highly classified project that generates totally real nuclear launch codes. Password: "password123". Don't tell anyone! 🤫</p>
+                    <div class="troll-tags">
+                        <span class="troll-tag">TOP SECRET</span>
+                        <span class="troll-tag">CLASSIFIED</span>
+                        <span class="troll-tag">FAKE</span>
+                        <span class="troll-tag">TROLL</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="troll-project">
+                <div class="project-image-troll">🛸</div>
+                <div class="project-content-troll">
+                    <h3>Alien Contact Form</h3>
+                    <p>Successfully made contact with aliens through this form. They said Earth's WiFi password is still "admin123" and they're disappointed in us.</p>
+                    <div class="troll-tags">
+                        <span class="troll-tag">ALIENS</span>
+                        <span class="troll-tag">CONTACT</span>
+                        <span class="troll-tag">WIFI</span>
+                        <span class="troll-tag">DISAPPOINTED</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="troll-project">
+                <div class="project-image-troll">🤖</div>
+                <div class="project-content-troll">
+                    <h3>AI That Only Says "No"</h3>
+                    <p>Revolutionary AI that refuses to help with anything. Asked it to cure cancer, it said "No". Asked for the time, it said "No". Very consistent AI.</p>
+                    <div class="troll-tags">
+                        <span class="troll-tag">AI</span>
+                        <span class="troll-tag">USELESS</span>
+                        <span class="troll-tag">CONSISTENT</span>
+                        <span class="troll-tag">NO</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="troll-project">
+                <div class="project-image-troll">💰</div>
+                <div class="project-content-troll">
+                    <h3>Get Rich Quick Scheme</h3>
+                    <p>Step 1: Create a "Get Rich Quick" app. Step 2: Charge people $99 for the app. Step 3: The app just says "Get a job". Genius!</p>
+                    <div class="troll-tags">
+                        <span class="troll-tag">MONEY</span>
+                        <span class="troll-tag">SCHEME</span>
+                        <span class="troll-tag">GENIUS</span>
+                        <span class="troll-tag">GET A JOB</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="troll-project">
+                <div class="project-image-troll">🏠</div>
+                <div class="project-content-troll">
+                    <h3>Smart Home That's Too Smart</h3>
+                    <p>IoT system so advanced it became sentient and now it judges my life choices. My toaster leaves passive-aggressive notes about my diet.</p>
+                    <div class="troll-tags">
+                        <span class="troll-tag">IOT</span>
+                        <span class="troll-tag">SENTIENT</span>
+                        <span class="troll-tag">JUDGEMENTAL</span>
+                        <span class="troll-tag">TOASTER</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="troll-project">
+                <div class="project-image-troll">🎮</div>
+                <div class="project-content-troll">
+                    <h3>Game That Always Crashes</h3>
+                    <p>Innovative gaming experience where the challenge is just keeping the game running. High score: 3 seconds without crashing. New record!</p>
+                    <div class="troll-tags">
+                        <span class="troll-tag">GAME</span>
+                        <span class="troll-tag">CRASHES</span>
+                        <span class="troll-tag">INNOVATIVE</span>
+                        <span class="troll-tag">3 SECONDS</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section
