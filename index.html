@@ -237,6 +237,22 @@
             }
         }
 
+        /* Profile Image Styling */
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 5px solid var(--troll-green);
+            box-shadow: 0 0 20px var(--troll-green);
+            margin: 20px 0;
+            animation: profileSpin 3s linear infinite;
+        }
+
+        @keyframes profileSpin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
         /* Annoying Popup */
         .annoying-popup {
             position: fixed;
@@ -677,24 +693,19 @@
         </div>
         
         <h1 class="glitch-title">404 FAROUK</h1>
+        <img src="profil.jpg" alt="Profile Picture" class="profile-img">
         <h2 style="color: var(--warning-yellow); font-size: 2rem; margin-bottom: 20px;">
             🎭 MASTER TROLL • CHAOS ENGINEER • EXPECTATION DESTROYER 🎭
         </h2>
         <p style="color: var(--hacker-blue); font-size: 1.2rem; margin-bottom: 30px;">
             #404 because your sanity isn't found, it's trolled
         </p>
-                    <a href="https://omarkortas.github.io/site-pro/?fbclid=PAZXh0bgNhZW0CMTEAAaduvRY7YSb139JF7ETk3t4XQCRxbtAqtvS_gymxvqIIEBQwEGDd4rtIY4-KPg_aem_M9-ZnuXWpbzPghkE9lS8Iw" 
-   class="troll-btn" 
-   target="_blank">
-   🚀 Voir Mon Vrai Site
-</a>
+        
         <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
             <a href="#skills" class="troll-btn" onclick="rickRoll()">View My "Skills"</a>
             <a href="#projects" class="troll-btn" onclick="showFakeError()">See "Projects"</a>
             <button class="troll-btn" onclick="activateChaos()">DO NOT CLICK</button>
-
         </div>
-        
     </section>
 
     <!-- Skills Section -->
@@ -744,89 +755,197 @@
         <h2 class="section-title-troll">🚨 TOP SECRET PROJECTS 🚨</h2>
         <div class="troll-projects">
             <div class="troll-project">
-                <div class="project-image-troll">💣</div>
+                <div class="project-image-troll"><img src="image1.jpg" alt="Project 1" style="width: 100%; height: 100%; object-fit: cover;"></div>
                 <div class="project-content-troll">
-                    <h3>Nuclear Launch Codes Generator</h3>
-                    <p>A highly classified project that generates totally real nuclear launch codes. Password: "password123". Don't tell anyone! 🤫</p>
+                    <h3>Project 1</h3>
+                    <p>A mysterious project shrouded in digital chaos. Details? Classified!</p>
                     <div class="troll-tags">
-                        <span class="troll-tag">TOP SECRET</span>
-                        <span class="troll-tag">CLASSIFIED</span>
-                        <span class="troll-tag">FAKE</span>
+                        <span class="troll-tag">SECRET</span>
+                        <span class="troll-tag">CHAOS</span>
                         <span class="troll-tag">TROLL</span>
                     </div>
                 </div>
             </div>
 
             <div class="troll-project">
-                <div class="project-image-troll">🛸</div>
+                <div class="project-image-troll"><img src="image2.jpg" alt="Project 2" style="width: 100%; height: 100%; object-fit: cover;"></div>
                 <div class="project-content-troll">
-                    <h3>Alien Contact Form</h3>
-                    <p>Successfully made contact with aliens through this form. They said Earth's WiFi password is still "admin123" and they're disappointed in us.</p>
+                    <h3>Project 2</h3>
+                    <p>Another enigma wrapped in a riddle. Good luck figuring this one out!</p>
                     <div class="troll-tags">
-                        <span class="troll-tag">ALIENS</span>
-                        <span class="troll-tag">CONTACT</span>
-                        <span class="troll-tag">WIFI</span>
-                        <span class="troll-tag">DISAPPOINTED</span>
+                        <span class="troll-tag">ENIGMA</span>
+                        <span class="troll-tag">RIDDLE</span>
+                        <span class="troll-tag">TROLL</span>
                     </div>
                 </div>
             </div>
 
             <div class="troll-project">
-                <div class="project-image-troll">🤖</div>
+                <div class="project-image-troll"><img src="image3.jpg" alt="Project 3" style="width: 100%; height: 100%; object-fit: cover;"></div>
                 <div class="project-content-troll">
-                    <h3>AI That Only Says "No"</h3>
-                    <p>Revolutionary AI that refuses to help with anything. Asked it to cure cancer, it said "No". Asked for the time, it said "No". Very consistent AI.</p>
+                    <h3>Project 3</h3>
+                    <p>A masterpiece of trolling, hidden in plain sight.</p>
                     <div class="troll-tags">
-                        <span class="troll-tag">AI</span>
-                        <span class="troll-tag">USELESS</span>
-                        <span class="troll-tag">CONSISTENT</span>
-                        <span class="troll-tag">NO</span>
+                        <span class="troll-tag">MASTERPIECE</span>
+                        <span class="troll-tag">HIDDEN</span>
+                        <span class="troll-tag">TROLL</span>
                     </div>
                 </div>
             </div>
 
             <div class="troll-project">
-                <div class="project-image-troll">💰</div>
+                <div class="project-image-troll"><img src="image4.jpg" alt="Project 4" style="width: 100%; height: 100%; object-fit: cover;"></div>
                 <div class="project-content-troll">
-                    <h3>Get Rich Quick Scheme</h3>
-                    <p>Step 1: Create a "Get Rich Quick" app. Step 2: Charge people $99 for the app. Step 3: The app just says "Get a job". Genius!</p>
+                    <h3>Project 4</h3>
+                    <p>Chaos engineered to perfection. Handle with care!</p>
                     <div class="troll-tags">
-                        <span class="troll-tag">MONEY</span>
-                        <span class="troll-tag">SCHEME</span>
-                        <span class="troll-tag">GENIUS</span>
-                        <span class="troll-tag">GET A JOB</span>
+                        <span class="troll-tag">CHAOS</span>
+                        <span class="troll-tag">PERFECTION</span>
+                        <span class="troll-tag">TROLL</span>
                     </div>
                 </div>
             </div>
 
             <div class="troll-project">
-                <div class="project-image-troll">🏠</div>
+                <div class="project-image-troll"><img src="image5.jpg" alt="Project 5" style="width: 100%; height: 100%; object-fit: cover;"></div>
                 <div class="project-content-troll">
-                    <h3>Smart Home That's Too Smart</h3>
-                    <p>IoT system so advanced it became sentient and now it judges my life choices. My toaster leaves passive-aggressive notes about my diet.</p>
+                    <h3>Project 5</h3>
+                    <p>A wild card project that defies all logic.</p>
                     <div class="troll-tags">
-                        <span class="troll-tag">IOT</span>
-                        <span class="troll-tag">SENTIENT</span>
-                        <span class="troll-tag">JUDGEMENTAL</span>
-                        <span class="troll-tag">TOASTER</span>
+                        <span class="troll-tag">WILD</span>
+                        <span class="troll-tag">LOGIC</span>
+                        <span class="troll-tag">TROLL</span>
                     </div>
                 </div>
             </div>
 
             <div class="troll-project">
-                <div class="project-image-troll">🎮</div>
+                <div class="project-image-troll"><img src="image6.jpg" alt="Project 6" style="width: 100%; height: 100%; object-fit: cover;"></div>
                 <div class="project-content-troll">
-                    <h3>Game That Always Crashes</h3>
-                    <p>Innovative gaming experience where the challenge is just keeping the game running. High score: 3 seconds without crashing. New record!</p>
+                    <h3>Project 6</h3>
+                    <p>Expect the unexpected with this troll-tastic creation.</p>
                     <div class="troll-tags">
-                        <span class="troll-tag">GAME</span>
-                        <span class="troll-tag">CRASHES</span>
-                        <span class="troll-tag">INNOVATIVE</span>
-                        <span class="troll-tag">3 SECONDS</span>
+                        <span class="troll-tag">UNEXPECTED</span>
+                        <span class="troll-tag">TROLLTASTIC</span>
+                        <span class="troll-tag">TROLL</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="troll-project">
+                <div class="project-image-troll"><img src="image7.jpg" alt="Project 7" style="width: 100%; height: 100%; object-fit: cover;"></div>
+                <div class="project-content-troll">
+                    <h3>Project 7</h3>
+                    <p>The grand finale of trolling, brought to you with love.</p>
+                    <div class="troll-tags">
+                        <span class="troll-tag">FINALE</span>
+                        <span class="troll-tag">LOVE</span>
+                        <span class="troll-tag">TROLL</span>
                     </div>
                 </div>
             </div>
         </div>
+    </section>
 
-    </section
+    <!-- Contact Section -->
+    <section id="contact" class="contact-troll">
+        <div class="contact-warning">
+            ⚠️ WARNING: Contacting me might summon a digital troll army! Proceed with caution! ⚠️
+        </div>
+        <p style="color: var(--troll-green); font-size: 1.5rem; margin-bottom: 20px;">
+            Need to yell into the void? Try these links instead!
+        </p>
+        <div class="contact-links-troll">
+            <a href="mailto:farouk@troll.com" class="contact-link-troll">Email Me (Maybe)</a>
+            <a href="https://trollbook.com/farouk" class="contact-link-troll">Fake Social</a>
+            <a href="tel:+123456789" class="contact-link-troll">Call Me (Never)</a>
+        </div>
+    </section>
 
+    <!-- Footer -->
+    <footer class="footer-troll">
+        <p style="color: var(--troll-green);">© 2025 404 Farouk - All rights reserved (except your sanity)</p>
+    </footer>
+
+    <script>
+        // Matrix Rain Effect
+        function createMatrixRain() {
+            const matrixBg = document.getElementById('matrixBg');
+            for (let i = 0; i < 100; i++) {
+                const rainDrop = document.createElement('div');
+                rainDrop.className = 'matrix-rain';
+                rainDrop.style.left = `${Math.random() * 100}vw`;
+                rainDrop.style.animationDuration = `${Math.random() * 2 + 1}s`;
+                rainDrop.innerText = String.fromCharCode(65 + Math.random() * 57);
+                matrixBg.appendChild(rainDrop);
+                setTimeout(() => rainDrop.remove(), 5000);
+            }
+        }
+        setInterval(createMatrixRain, 100);
+
+        // Cursor Follower
+        const cursorFollow = document.getElementById('cursorFollow');
+        document.addEventListener('mousemove', (e) => {
+            cursorFollow.style.left = `${e.pageX - 10}px`;
+            cursorFollow.style.top = `${e.pageY - 10}px`;
+        });
+
+        // Annoying Popup
+        const annoyingPopup = document.getElementById('annoyingPopup');
+        setTimeout(() => {
+            annoyingPopup.style.display = 'block';
+        }, 2000);
+
+        function closePopup() {
+            annoyingPopup.style.display = 'none';
+        }
+
+        // Fake Counter
+        const fakeCounter = document.getElementById('fakeCounter');
+        setInterval(() => {
+            fakeCounter.textContent = Math.floor(Math.random() * 1000000) + 1337000;
+        }, 1000);
+
+        // Troll Functions
+        function rickRoll() {
+            window.location.href = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
+        }
+
+        function showFakeError() {
+            alert('ERROR 404: Project not found. Try harder!');
+        }
+
+        function activateChaos() {
+            alert('CHAOS ACTIVATED! Your screen is now cursed for 5 seconds!');
+            setTimeout(() => alert('Just kidding... or am I? 😈'), 5000);
+        }
+
+        // Typing Effect
+        const typingText = document.getElementById('typingText');
+        const trollMessages = [
+            'Trolling in progress...',
+            'Expectations deleted!',
+            'Hacking your mind...',
+            '404 sanity not found!'
+        ];
+        let messageIndex = 0;
+        let charIndex = 0;
+
+        function typeWriter() {
+            if (charIndex < trollMessages[messageIndex].length) {
+                typingText.textContent += trollMessages[messageIndex].charAt(charIndex);
+                charIndex++;
+                setTimeout(typeWriter, 100);
+            } else {
+                setTimeout(() => {
+                    typingText.textContent = '$ ';
+                    charIndex = 0;
+                    messageIndex = (messageIndex + 1) % trollMessages.length;
+                    setTimeout(typeWriter, 500);
+                }, 2000);
+            }
+        }
+        typeWriter();
+    </script>
+</body>
+</html>
