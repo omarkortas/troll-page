@@ -46,17 +46,12 @@
             font-size: 16px;
             animation: matrixFall linear infinite;
             opacity: 0.7;
+            will-change: transform;
         }
 
         @keyframes matrixFall {
-            0% {
-                transform: translateY(-100vh);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(100vh);
-                opacity: 0;
-            }
+            0% { transform: translateY(-100vh); opacity: 1; }
+            100% { transform: translateY(100vh); opacity: 0; }
         }
 
         /* Fake System Alerts */
@@ -70,19 +65,13 @@
             border-radius: 5px;
             font-weight: bold;
             z-index: 10000;
-            animation: alertBlink 1s infinite, alertShake 0.5s infinite;
+            animation: alertBlink 1s infinite;
             box-shadow: 0 0 20px var(--danger-red);
         }
 
         @keyframes alertBlink {
             0%, 50% { opacity: 1; }
             51%, 100% { opacity: 0; }
-        }
-
-        @keyframes alertShake {
-            0%, 100% { transform: translateX(0); }
-            25% { transform: translateX(-5px); }
-            75% { transform: translateX(5px); }
         }
 
         /* Troll Navigation */
@@ -94,15 +83,6 @@
             border-bottom: 2px solid var(--troll-green);
             padding: 10px 0;
             z-index: 1000;
-            animation: navGlitch 3s infinite;
-        }
-
-        @keyframes navGlitch {
-            0%, 90%, 100% { transform: translate(0); }
-            92% { transform: translate(-2px, 2px); }
-            94% { transform: translate(2px, -2px); }
-            96% { transform: translate(-2px, -2px); }
-            98% { transform: translate(2px, 2px); }
         }
 
         .nav-content {
@@ -119,12 +99,6 @@
             font-weight: bold;
             color: var(--danger-red);
             text-shadow: 0 0 10px var(--danger-red);
-            animation: logoSpin 2s linear infinite;
-        }
-
-        @keyframes logoSpin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
         }
 
         .troll-links {
@@ -138,7 +112,6 @@
             text-decoration: none;
             font-weight: bold;
             transition: all 0.3s ease;
-            position: relative;
         }
 
         .troll-links a:hover {
@@ -196,7 +169,7 @@
             animation: typingCursor 1s step-end infinite;
         }
 
-        @keyframes typingCursor {
+        @keyframes figuresCursor {
             0%, 50% { border-color: var(--troll-green); }
             51%, 100% { border-color: transparent; }
         }
@@ -210,31 +183,16 @@
                 0 0 5px var(--troll-green),
                 0 0 10px var(--troll-green),
                 0 0 15px var(--troll-green);
-            animation: titleGlitch 2s infinite;
-            position: relative;
+            will-change: transform;
+            animation: titleGlitch 3s infinite;
         }
 
         @keyframes titleGlitch {
-            0%, 90%, 100% {
-                transform: translate(0);
-                filter: hue-rotate(0deg);
-            }
-            10% {
-                transform: translate(-2px, 2px);
-                filter: hue-rotate(90deg);
-            }
-            20% {
-                transform: translate(2px, -2px);
-                filter: hue-rotate(180deg);
-            }
-            30% {
-                transform: translate(-2px, -2px);
-                filter: hue-rotate(270deg);
-            }
-            40% {
-                transform: translate(2px, 2px);
-                filter: hue-rotate(360deg);
-            }
+            0%, 90%, 100% { transform: translate(0); }
+            92% { transform: translate(-2px, 2px); }
+            94% { transform: translate(2px, -2px); }
+            96% { transform: translate(-2px, -2px); }
+            98% { transform: translate(2px, 2px); }
         }
 
         /* Profile Image Styling */
@@ -245,7 +203,8 @@
             border: 5px solid var(--troll-green);
             box-shadow: 0 0 20px var(--troll-green);
             margin: 20px 0;
-            animation: profileSpin 3s linear infinite;
+            will-change: transform;
+            animation: profileSpin 3s linear infinite; /* Added rotation animation */
         }
 
         @keyframes profileSpin {
@@ -268,13 +227,7 @@
             text-align: center;
             font-weight: bold;
             box-shadow: 0 0 50px var(--danger-red);
-            animation: popupBounce 0.5s infinite alternate;
             display: none;
-        }
-
-        @keyframes popupBounce {
-            0% { transform: translate(-50%, -50%) scale(1); }
-            100% { transform: translate(-50%, -50%) scale(1.1); }
         }
 
         /* Troll Sections */
@@ -291,12 +244,6 @@
             margin-bottom: 50px;
             color: var(--danger-red);
             text-shadow: 0 0 20px var(--danger-red);
-            animation: sectionGlow 3s ease-in-out infinite;
-        }
-
-        @keyframes sectionGlow {
-            0%, 100% { text-shadow: 0 0 20px var(--danger-red); }
-            50% { text-shadow: 0 0 40px var(--danger-red), 0 0 60px var(--warning-yellow); }
         }
 
         /* Fake Skills */
@@ -314,40 +261,27 @@
             padding: 30px;
             text-align: center;
             transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
         }
 
-        .troll-skill::before {
-            content: '💀';
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            font-size: 24px;
-            animation: skullSpin 2s linear infinite;
-        }
-
-        @keyframes skullSpin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .troll-skill:hover {
-            background: rgba(255, 0, 64, 0.2);
-            border-color: var(--danger-red);
-            transform: scale(1.05) rotate(2deg);
-            box-shadow: 0 0 30px var(--danger-red);
-        }
-
-        .skill-icon-troll {
-            font-size: 60px;
-            margin-bottom: 15px;
-            animation: iconBounce 2s ease-in-out infinite;
+        .troll-skill:hover .skill-icon-troll {
+            animation: iconBounce 0.5s ease-in-out;
         }
 
         @keyframes iconBounce {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-10px); }
+        }
+
+        .troll-skill:hover {
+            background: rgba(255, 0, 64, 0.2);
+            border-color: var(--danger-red);
+            transform: scale(1.05);
+        }
+
+        .skill-icon-troll {
+            font-size: 60px;
+            margin-bottom: 15px;
+            will-change: transform;
         }
 
         .troll-skill h3 {
@@ -375,44 +309,16 @@
             border-radius: 15px;
             overflow: hidden;
             transition: all 0.5s ease;
-            position: relative;
-        }
-
-        .troll-project::after {
-            content: '🚨 CLASSIFIED 🚨';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: var(--danger-red);
-            color: white;
-            text-align: center;
-            padding: 5px;
-            font-size: 12px;
-            font-weight: bold;
-            animation: classifiedBlink 1s infinite;
-        }
-
-        @keyframes classifiedBlink {
-            0%, 50% { opacity: 1; }
-            51%, 100% { opacity: 0; }
         }
 
         .troll-project:hover {
-            transform: translateY(-10px) rotateX(10deg);
-            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.3);
+            transform: translateY(-10px);
             border-color: var(--danger-red);
         }
 
         .project-image-troll {
             height: 200px;
             background: linear-gradient(45deg, var(--dark), var(--matrix-green));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 80px;
-            position: relative;
-            overflow: hidden;
         }
 
         .project-content-troll {
@@ -445,12 +351,13 @@
             border-radius: 15px;
             font-size: 12px;
             border: 1px solid var(--danger-red);
-            animation: tagGlow 2s ease-in-out infinite;
+            animation: tagPulse 2s infinite;
+            will-change: opacity;
         }
 
-        @keyframes tagGlow {
-            0%, 100% { box-shadow: 0 0 5px var(--danger-red); }
-            50% { box-shadow: 0 0 15px var(--danger-red); }
+        @keyframes tagPulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
         }
 
         /* Troll Buttons */
@@ -463,32 +370,14 @@
             font-weight: bold;
             border-radius: 25px;
             cursor: pointer;
-            transition: all 0.3s ease;
             text-decoration: none;
             display: inline-block;
             margin: 10px;
-            position: relative;
-            overflow: hidden;
-            animation: btnPulse 2s infinite;
-        }
-
-        @keyframes btnPulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
         }
 
         .troll-btn:hover {
             background: linear-gradient(45deg, var(--warning-yellow), var(--danger-red));
-            transform: scale(1.1) rotate(5deg);
-            box-shadow: 0 0 30px var(--danger-red);
-        }
-
-        .troll-btn::after {
-            content: '💣';
-            position: absolute;
-            right: 10px;
-            top: 50%;
-            transform: translateY(-50%);
+            transform: scale(1.1);
         }
 
         /* Contact Troll */
@@ -507,12 +396,6 @@
             max-width: 600px;
             font-weight: bold;
             border: 3px dashed var(--danger-red);
-            animation: warningFlash 1s infinite;
-        }
-
-        @keyframes warningFlash {
-            0%, 50% { background: var(--warning-yellow); }
-            51%, 100% { background: var(--danger-red); color: white; }
         }
 
         .contact-links-troll {
@@ -532,7 +415,6 @@
             border-radius: 10px;
             font-weight: bold;
             transition: all 0.3s ease;
-            position: relative;
         }
 
         .contact-link-troll::before {
@@ -544,8 +426,6 @@
             background: rgba(255, 0, 64, 0.2);
             border-color: var(--danger-red);
             color: var(--danger-red);
-            transform: scale(1.1);
-            box-shadow: 0 0 20px var(--danger-red);
         }
 
         /* Footer Troll */
@@ -577,65 +457,16 @@
             100% { transform: translateX(-100%); }
         }
 
-        /* Responsive */
+        /* Mobile Optimizations */
         @media (max-width: 768px) {
-            .troll-links {
-                gap: 15px;
-            }
-            
-            .contact-links-troll {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .troll-skills,
-            .troll-projects {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Annoying Cursor Follow */
-        .cursor-follow {
-            position: fixed;
-            width: 20px;
-            height: 20px;
-            background: var(--danger-red);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 9999;
-            animation: cursorPulse 1s infinite;
-            mix-blend-mode: difference;
-        }
-
-        @keyframes cursorPulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(2); }
-        }
-
-        /* Screen Distortion Effect */
-        .screen-distortion {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 9998;
-            background: repeating-linear-gradient(
-                0deg,
-                transparent,
-                transparent 3px,
-                rgba(0, 255, 65, 0.03) 3px,
-                rgba(0, 255, 65, 0.03) 6px
-            );
-            animation: screenFlicker 0.1s infinite;
-        }
-
-        @keyframes screenFlicker {
-            0% { opacity: 1; }
-            98% { opacity: 1; }
-            99% { opacity: 0.98; }
-            100% { opacity: 1; }
+            .troll-links { gap: 15px; }
+            .contact-links-troll { flex-direction: column; align-items: center; }
+            .troll-skills, .troll-projects { grid-template-columns: 1fr; }
+            .matrix-bg, .matrix-rain, .cursor-follow, .fake-alert { display: none; }
+            .glitch-title, .footer-troll::before, .profile-img { animation: none !important; } /* Disable heavy animations */
+            .troll-btn, .troll-skill, .troll-project { transform: none !important; }
+            .troll-tag { animation: none !important; }
+            .troll-skill:hover .skill-icon-troll { animation: none; }
         }
     </style>
 </head>
@@ -647,9 +478,6 @@
 
     <!-- Matrix Background -->
     <div class="matrix-bg" id="matrixBg"></div>
-
-    <!-- Screen Distortion -->
-    <div class="screen-distortion"></div>
 
     <!-- Cursor Follower -->
     <div class="cursor-follow" id="cursorFollow"></div>
@@ -693,7 +521,7 @@
         </div>
         
         <h1 class="glitch-title">404 FAROUK</h1>
-        <img src="profil.jpg" alt="Profile Picture" class="profile-img">
+        <img src="profil.jpg" alt="Profile Picture" class="profile-img" loading="lazy">
         <h2 style="color: var(--warning-yellow); font-size: 2rem; margin-bottom: 20px;">
             🎭 MASTER TROLL • CHAOS ENGINEER • EXPECTATION DESTROYER 🎭
         </h2>
@@ -717,31 +545,26 @@
                 <h3>Spaghetti Code Master</h3>
                 <p>15+ years of writing code so tangled, even I can't understand it. Specializing in 10,000-line functions and variables named 'x', 'data2', and 'theThing'.</p>
             </div>
-            
             <div class="troll-skill">
                 <div class="skill-icon-troll">🔥</div>
                 <h3>Professional Bug Creator</h3>
                 <p>Expert in introducing exactly 3 new bugs for every 1 bug fixed. Certified in making features that work perfectly... until someone else tries to use them.</p>
             </div>
-            
             <div class="troll-skill">
                 <div class="skill-icon-troll">💩</div>
                 <h3>CSS Chaos Engineer</h3>
                 <p>Master of making responsive designs that only work on my specific laptop screen resolution. Fluent in !important cascades and mysterious z-index wars.</p>
             </div>
-            
             <div class="troll-skill">
                 <div class="skill-icon-troll">🤯</div>
                 <h3>User Experience Destructor</h3>
                 <p>Specialized in creating interfaces so confusing that users question their life choices. 47 steps to complete a simple task? That's rookie numbers!</p>
             </div>
-            
             <div class="troll-skill">
                 <div class="skill-icon-troll">⏰</div>
                 <h3>Deadline Magician</h3>
                 <p>Expert in estimating 2-hour tasks as 5-day projects and somehow still delivering 3 weeks late. Time is just a social construct anyway, right?</p>
             </div>
-            
             <div class="troll-skill">
                 <div class="skill-icon-troll">🔍</div>
                 <h3>Stack Overflow Copier</h3>
@@ -755,7 +578,7 @@
         <h2 class="section-title-troll">🚨 TOP SECRET PROJECTS 🚨</h2>
         <div class="troll-projects">
             <div class="troll-project">
-                <div class="project-image-troll"><img src="image1.jpg" alt="Project 1" style="width: 100%; height: 100%; object-fit: cover;"></div>
+                <div class="project-image-troll"><img src="image1.jpg" alt="Project 1" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy"></div>
                 <div class="project-content-troll">
                     <h3>Project 1</h3>
                     <p>A mysterious project shrouded in digital chaos. Details? Classified!</p>
@@ -766,9 +589,8 @@
                     </div>
                 </div>
             </div>
-
             <div class="troll-project">
-                <div class="project-image-troll"><img src="image2.jpg" alt="Project 2" style="width: 100%; height: 100%; object-fit: cover;"></div>
+                <div class="project-image-troll"><img src="image2.jpg" alt="Project 2" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy"></div>
                 <div class="project-content-troll">
                     <h3>Project 2</h3>
                     <p>Another enigma wrapped in a riddle. Good luck figuring this one out!</p>
@@ -779,9 +601,8 @@
                     </div>
                 </div>
             </div>
-
             <div class="troll-project">
-                <div class="project-image-troll"><img src="image3.jpg" alt="Project 3" style="width: 100%; height: 100%; object-fit: cover;"></div>
+                <div class="project-image-troll"><img src="image3.jpg" alt="Project 3" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy"></div>
                 <div class="project-content-troll">
                     <h3>Project 3</h3>
                     <p>A masterpiece of trolling, hidden in plain sight.</p>
@@ -792,9 +613,8 @@
                     </div>
                 </div>
             </div>
-
             <div class="troll-project">
-                <div class="project-image-troll"><img src="image4.jpg" alt="Project 4" style="width: 100%; height: 100%; object-fit: cover;"></div>
+                <div class="project-image-troll"><img src="image4.jpg" alt="Project 4" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy"></div>
                 <div class="project-content-troll">
                     <h3>Project 4</h3>
                     <p>Chaos engineered to perfection. Handle with care!</p>
@@ -805,9 +625,8 @@
                     </div>
                 </div>
             </div>
-
             <div class="troll-project">
-                <div class="project-image-troll"><img src="image5.jpg" alt="Project 5" style="width: 100%; height: 100%; object-fit: cover;"></div>
+                <div class="project-image-troll"><img src="image5.jpg" alt="Project 5" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy"></div>
                 <div class="project-content-troll">
                     <h3>Project 5</h3>
                     <p>A wild card project that defies all logic.</p>
@@ -818,9 +637,8 @@
                     </div>
                 </div>
             </div>
-
             <div class="troll-project">
-                <div class="project-image-troll"><img src="image6.jpg" alt="Project 6" style="width: 100%; height: 100%; object-fit: cover;"></div>
+                <div class="project-image-troll"><img src="image6.jpg" alt="Project 6" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy"></div>
                 <div class="project-content-troll">
                     <h3>Project 6</h3>
                     <p>Expect the unexpected with this troll-tastic creation.</p>
@@ -831,9 +649,8 @@
                     </div>
                 </div>
             </div>
-
             <div class="troll-project">
-                <div class="project-image-troll"><img src="image7.jpg" alt="Project 7" style="width: 100%; height: 100%; object-fit: cover;"></div>
+                <div class="project-image-troll"><img src="image7.jpg" alt="Project 7" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy"></div>
                 <div class="project-content-troll">
                     <h3>Project 7</h3>
                     <p>The grand finale of trolling, brought to you with love.</p>
@@ -868,10 +685,11 @@
     </footer>
 
     <script>
-        // Matrix Rain Effect
+        // Matrix Rain Effect (optimized)
         function createMatrixRain() {
+            if (window.innerWidth <= 768) return;
             const matrixBg = document.getElementById('matrixBg');
-            for (let i = 0; i < 100; i++) {
+            for (let i = 0; i < 20; i++) {
                 const rainDrop = document.createElement('div');
                 rainDrop.className = 'matrix-rain';
                 rainDrop.style.left = `${Math.random() * 100}vw`;
@@ -881,20 +699,28 @@
                 setTimeout(() => rainDrop.remove(), 5000);
             }
         }
-        setInterval(createMatrixRain, 100);
+        if (window.innerWidth > 768) {
+            setInterval(createMatrixRain, 500);
+        }
 
-        // Cursor Follower
+        // Cursor Follower (disabled on mobile)
         const cursorFollow = document.getElementById('cursorFollow');
-        document.addEventListener('mousemove', (e) => {
-            cursorFollow.style.left = `${e.pageX - 10}px`;
-            cursorFollow.style.top = `${e.pageY - 10}px`;
-        });
+        if (!('ontouchstart' in window)) {
+            document.addEventListener('mousemove', (e) => {
+                cursorFollow.style.left = `${e.pageX - 10}px`;
+                cursorFollow.style.top = `${e.pageY - 10}px`;
+            });
+        } else {
+            cursorFollow.style.display = 'none';
+        }
 
         // Annoying Popup
         const annoyingPopup = document.getElementById('annoyingPopup');
-        setTimeout(() => {
-            annoyingPopup.style.display = 'block';
-        }, 2000);
+        if (window.innerWidth > 768) {
+            setTimeout(() => {
+                annoyingPopup.style.display = 'block';
+            }, 5000);
+        }
 
         function closePopup() {
             annoyingPopup.style.display = 'none';
@@ -904,7 +730,7 @@
         const fakeCounter = document.getElementById('fakeCounter');
         setInterval(() => {
             fakeCounter.textContent = Math.floor(Math.random() * 1000000) + 1337000;
-        }, 1000);
+        }, 5000);
 
         // Troll Functions
         function rickRoll() {
@@ -912,12 +738,12 @@
         }
 
         function showFakeError() {
-            alert('ERROR 404: Project not found. Try harder!');
+            console.log('ERROR 404: Project not found. Try harder!');
         }
 
         function activateChaos() {
-            alert('CHAOS ACTIVATED! Your screen is now cursed for 5 seconds!');
-            setTimeout(() => alert('Just kidding... or am I? 😈'), 5000);
+            console.log('CHAOS ACTIVATED! Your screen is now cursed for 5 seconds!');
+            setTimeout(() => console.log('Just kidding... or am I? 😈'), 5000);
         }
 
         // Typing Effect
